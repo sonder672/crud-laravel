@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Postcontroller;
+use App\Http\Controllers\auth\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +12,6 @@ use App\Http\Controllers\Postcontroller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('/admin/posts', PostController::class);
+Route::resource('/User', [User::class]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
