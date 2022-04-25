@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models\BusinessLogic\User\ValueObject;
+use Exception;
 
 final class PasswordValueObject
 {
@@ -13,7 +14,9 @@ final class PasswordValueObject
 
     private function setPassword(string $password)
     {
-        //Falta verificación, como que tenga mínimo 8 carácteres.
+        if(\strlen($password) < 8){
+            throw new Exception('La clave debe tener minimo 8 caracteres');
+        }
         $this->password = $password;
     }
 
