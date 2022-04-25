@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\DB\userDB;
-use Exception;
+use App\Models\BusinessLogic\User\Dto\RegisterUserDto;
 
 class User extends Controller
 {
-    protected $userDB;
     /**
      * Show the form for creating a new resource.
      *
@@ -16,25 +14,10 @@ class User extends Controller
      */
     public function create(Request $request)
     {
-        $data = $request->only([
-            'id',
-            'name',
-            'lastname',
-            'age',
-            'email',
-            'password'
-        ]);
-        $result = ['status' => 200];
-        try{
-            $result['data'] = $this->userDB->registerUser($data);
-        } catch (Exception $e) {
-            $result = [
-                'status' => 500,
-                'error' => $e->getMessage()
-            ];
-        }
-
-        return response()->json($result, $result['status']); 
+        $UserRegisert = new RegisterUserDto(
+            $request->id, $request->name, $request->lastname,
+            $request->age, $request->email, $request->password
+        );
     }
 
     /**
@@ -45,21 +28,8 @@ class User extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only([
-            'email',
-            'password'
-        ]);
-        $result = ['status' => 200];
-        try {
-            $result['data'] = $this->NotesDB->login($data);
-        } catch(Exception $e) {
-            $result = [
-                'status' => 500,
-                'error' => $e->getMessage()
-            ];
-        }
-
-        return response()->json($result, $result['status']);
-        
+        $UserLogin = new RegisterUserDto(
+            $request->email, $request->password
+        );
     }
 }

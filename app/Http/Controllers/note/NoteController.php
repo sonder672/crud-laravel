@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\NoteDB;
+use App\Models\BusinessLogic\Notes\Dto\AddNoteDto;
+use App\Models\BusinessLogic\Notes\Dto\DeleteNote;
+use App\Models\BusinessLogic\Notes\Dto\UpdateNoteDto;
 
 class NoteController extends Controller
 {
-    protected $NoteDB;
     /**
      * Display a listing of the resource.
      *
@@ -15,16 +16,6 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $this->NoteDB->readNote();
-        try{
-            $result['data'] = $this->userDB->readNote();
-        } catch (Exception $e) {
-            $result = [
-                'status' => 500,
-                'error' => $e->getMessage()
-            ];
-        }
-        return view('home',json($result, $result['status']));
     }
 
     /**
@@ -34,21 +25,9 @@ class NoteController extends Controller
      */
     public function create(Request $request)
     {
-        $result = $request->only([
-            'userId',
-            'title',
-            'content',
-        ]);
-        $result = ['status' => 200];
-        try{
-            $result['data'] = $this->userDB->createNote($data);
-        } catch (Exception $e) {
-            $result = [
-                'status' => 500,
-                'error' => $e->getMessage()
-            ];
-        }
-        return response()->json($result, $result['status']);
+        $createNote = new AddNoteDto(
+            $request->title, $request->content, $request->userId
+        );
     }
 
     /**
@@ -120,16 +99,6 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        $result = ['status' => 200];
-        try{
-            $result['data'] = $this->userDB->deleteNote($id);
-        } catch (Exception $e) {
-            $result = [
-                'status' => 500,
-                'error' => $e->getMessage()
-            ];
-        }
-
-        return response()->json($result, $result['status']);    
+           
     }
 }
