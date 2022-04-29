@@ -13,8 +13,8 @@ use App\Http\Controllers\note\NoteController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('/User', [User::class]);
-Route::resource('/note', [NoteController::class]);
+Route::resource('/User', User::class);
+Route::resource('/note', NoteController::class);
 
 
 
