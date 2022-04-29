@@ -25,9 +25,7 @@ class NoteController extends Controller
      */
     public function create(Request $request)
     {
-        $createNote = new AddNoteDto(
-            $request->title, $request->content, $request->userId
-        );
+        
     }
 
     /**
@@ -38,7 +36,11 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $createNote = new AddNoteDto(
+            $request->title,
+            $request->content,
+            $request->userId
+        );
     }
 
     /**
@@ -73,7 +75,10 @@ class NoteController extends Controller
     public function update(Request $request, $id)
     {
         $UpdateNoteDto = new UpdateNoteDto(
-            $request->uuid, $request->title, $request->content, $request->userId
+            $request->uuid,
+            $request->title,
+            $request->content,
+            $request->userId
         );
     }
 

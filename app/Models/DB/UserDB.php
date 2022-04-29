@@ -2,15 +2,16 @@
 
 namespace App\Models\DB;
 
+use App\Models\BusinessLogic\User\UserEntity;
 use Illuminate\Support\Facades\DB;
 
 final class UserDB
 {
-    public function registerUser(string $password, string $email, string $lastName, string $id, string $name, $age)
+    public function registerUser(UserEntity $attributes)
     {
         return DB::select(
             'call SP_registerUser(?, ?, ?, ?, ?, ?)', 
-            array($id, $name, $lastName, $age, $email, $password)
+            array($attributes->id, $attributes->name, $attributes->lastName, $attributes->age, $attributes->email, $attributes->password)
         );
     }
 
