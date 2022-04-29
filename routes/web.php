@@ -14,5 +14,7 @@ use App\Http\Controllers\note\NoteController;
 |
 */
 Route::resource('/User', [User::class]);
+Route::resource('/note', [NoteController::class]);
 
-Auth::routes();
+
+
