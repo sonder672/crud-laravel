@@ -15,7 +15,7 @@ class User extends Controller
     public function create(Request $request)
     {
         $contra = $request->$password;
-        $hashedPassword = Hash::make($password);
+        $hashedPassword = Hash::make($contra);
         $UserRegisert = new RegisterUserDto(
             $request->id, $request->name, $request->lastname,
             $request->age, $request->email, $hashedPassword
