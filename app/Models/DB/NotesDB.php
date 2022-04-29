@@ -3,14 +3,14 @@
 namespace App\Models\DB;
 
 use Illuminate\Support\Facades\DB;
-
+use App\Models\BusinessLogic\Notes\NotesEntity;
 final class NotesDB
 {
-    public function createNote(string $title, string $content, string $userId)
+    public function createNote(NotesEntity $attributes)
     {
         return DB::select(
             'call SP_addNote(?, ?, ?)', 
-            array($title, $content, $userId)
+            array($attributes->title, $attributes->content, $attributes->userId)
         );
     }
 

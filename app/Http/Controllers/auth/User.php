@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BusinessLogic\User\Dto\RegisterUserDto;
+use App\Models\BusinessLogic\User\Dto\LoginDto;
 use App\Models\BusinessLogic\User\Service\AddUserService;
+use App\Models\BusinessLogic\User\Service\LoginUserService;
 use App\Models\DB\UserDB;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,13 +39,9 @@ class User extends Controller
      */
     public function store(Request $request)
     {
-        $UserLogin = new RegisterUserDto(
-            $request->id,
-            $request->name,
-            $request->lastname,
-            $request->age,
-            $request->email,
-            Hash::make($request->password)
+        $loginUSer = new LoginDto(
+            $request->email, $request->password
         );
+        $loginUser = new LoginUserService( new UserDB());
     }
 }

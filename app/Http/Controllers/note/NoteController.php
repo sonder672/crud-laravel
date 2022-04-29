@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\BusinessLogic\Notes\Dto\AddNoteDto;
 use App\Models\BusinessLogic\Notes\Dto\DeleteNote;
 use App\Models\BusinessLogic\Notes\Dto\UpdateNoteDto;
+use App\Models\BusinessLogic\Notes\NoteServices\AddNoteService;
+use App\Models\BusinessLogic\Notes\NoteServices\UpdateNoteService;
+use App\Models\BusinessLogic\Notes\NoteServices\DestroyNoteService;
+use App\Models\DB\NotesDB;
 
 class NoteController extends Controller
 {
@@ -41,6 +45,7 @@ class NoteController extends Controller
             $request->content,
             $request->userId
         );
+        $AddNoteService = new AddNoteService( new NotesDB());
     }
 
     /**
@@ -80,6 +85,7 @@ class NoteController extends Controller
             $request->content,
             $request->userId
         );
+        $updateNoteService = new UpdateNoteService( new NotesDB);
     }
 
     /**
@@ -93,5 +99,6 @@ class NoteController extends Controller
         $DeleteNote = new DeleteNote(
             $id
         );
+        $DestroyNoteService = new DestroyNoteService( new NotesDB () );
     }
 }
