@@ -72,23 +72,9 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only([
-            $id,
-            'title',
-            'content',
-            'userId'
-        ]);
-        $result = ['status' => 200];
-        try{
-            $result['data'] = $this->userDB->updateNote($data);
-        } catch (Exception $e) {
-            $result = [
-                'status' => 500,
-                'error' => $e->getMessage()
-            ];
-        }
-
-        return response()->json($result, $result['status']); 
+        $UpdateNoteDto = new UpdateNoteDto(
+            $request->uuid, $request->title, $request->content, $request->userId
+        );
     }
 
     /**
@@ -99,6 +85,8 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-           
+        $DeleteNote = new DeleteNote(
+            $id
+        );
     }
 }
