@@ -5,5 +5,5 @@ CREATE PROCEDURE `SP_loginUser`(
     _password VARCHAR(20)
 ) 
 BEGIN
-SELECT * FROM `user` WHERE `email` = _email AND `password` = _password;
+SELECT `id`, `email`, `password` FROM `user` WHERE `email` = _email;
 END $$

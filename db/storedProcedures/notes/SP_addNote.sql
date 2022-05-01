@@ -7,5 +7,5 @@ CREATE PROCEDURE `SP_addNote`(
 ) 
 BEGIN
 INSERT INTO `notes`
-VALUES (UNHEX(REPLACE(UUID(), "-", "")),_title,_content,_userId,default);
+VALUES (UUID(), _title, _content, _userId, default);
 END $$

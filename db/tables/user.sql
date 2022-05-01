@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
     `id` VARCHAR(11) NOT NULL,
-    `name` VARCHAR(255) NOT NULL,
-    `last_name` VARCHAR(255) NOT NULL,
+    `name` VARCHAR(40) NOT NULL,
+    `last_name` VARCHAR(40) NOT NULL,
     `age` SMALLINT unsigned NULL,
     `email` VARCHAR(60) NOT NULL UNIQUE,
     `password` VARCHAR(20) NOT NULL,

@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
-    `uuid` BINARY(16) NOT NULL,
+    `uuid` VARCHAR(36) NOT NULL,
     `title` VARCHAR(30) NOT NULL,
     `content` TEXT NULL,
     `id_user` VARCHAR(11) NOT NULL,
