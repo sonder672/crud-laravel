@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\BusinessLogic\Notes;
+namespace App\Architecture\BusinessLogic\Notes;
 
-use App\Models\BusinessLogic\Notes\ValueObject\ContentValueObject;
-use App\Models\BusinessLogic\Notes\ValueObject\TitleValueObject;
+use App\Architecture\BusinessLogic\Notes\ValueObject\ContentValueObject;
+use App\Architecture\BusinessLogic\Notes\ValueObject\TitleValueObject;
 
 final class NotesEntity
 {

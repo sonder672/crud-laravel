@@ -1,23 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Architecture\View\Controllers;
 
+use App\Architecture\BusinessLogic\Notes\Dto\AddNoteDto;
+use App\Architecture\BusinessLogic\Notes\Dto\DeleteNoteDto;
+use App\Architecture\BusinessLogic\Notes\Dto\UpdateNoteDto;
+use App\Architecture\BusinessLogic\Notes\Service\NoteService;
+use App\Architecture\DB\Mysql\NotesDB;
 use Illuminate\Http\Request;
-use App\Models\BusinessLogic\Notes\Dto\AddNoteDto;
-use App\Models\BusinessLogic\Notes\Dto\DeleteNote;
-use App\Models\BusinessLogic\Notes\Dto\UpdateNoteDto;
-use App\Models\BusinessLogic\Notes\NoteServices\AddNoteService;
-use App\Models\BusinessLogic\Notes\NoteServices\UpdateNoteService;
-use App\Models\BusinessLogic\Notes\NoteServices\DestroyNoteService;
-use App\Models\DB\NotesDB;
 
 class NoteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
     }
@@ -45,7 +39,7 @@ class NoteController extends Controller
             $request->content,
             $request->userId
         );
-        $AddNoteService = new AddNoteService( new NotesDB());
+        $AddNoteService = new NoteService( new NotesDB() );
     }
 
     /**
@@ -77,15 +71,15 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $uuid)
     {
         $UpdateNoteDto = new UpdateNoteDto(
-            $request->uuid,
+            $uuid,
             $request->title,
             $request->content,
             $request->userId
         );
-        $updateNoteService = new UpdateNoteService( new NotesDB);
+        $updateNoteService = new NoteService( new NotesDB() );
     }
 
     /**
@@ -96,9 +90,8 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        $DeleteNote = new DeleteNote(
-            $id
-        );
-        $DestroyNoteService = new DestroyNoteService( new NotesDB () );
+        $deleteNoteDto = new DeleteNoteDto($id);
+        
+        $DestroyNoteService = new NoteService( new NotesDB () );
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\BusinessLogic\Notes\ValueObject;
+namespace App\Architecture\BusinessLogic\Notes\ValueObject;
 
 use Exception;
 

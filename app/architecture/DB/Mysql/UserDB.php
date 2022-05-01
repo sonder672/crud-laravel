@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\DB;
+namespace App\Architecture\DB;
 
 use App\Models\BusinessLogic\User\UserEntity;
 use Illuminate\Support\Facades\DB;

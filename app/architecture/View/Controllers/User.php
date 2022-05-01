@@ -1,13 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Architecture\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\BusinessLogic\User\Dto\RegisterUserDto;
-use App\Models\BusinessLogic\User\Dto\LoginDto;
-use App\Models\BusinessLogic\User\Service\AddUserService;
-use App\Models\BusinessLogic\User\Service\LoginUserService;
-use App\Models\DB\UserDB;
 use Illuminate\Support\Facades\Hash;
 
 class User extends Controller
