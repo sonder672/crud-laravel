@@ -2,7 +2,7 @@
 
 namespace App\Architecture\DB\Contract\User;
 
-use App\Models\BusinessLogic\User\UserEntity;
+use App\Architecture\BusinessLogic\User\UserEntity;
 
 interface ICreateUser
 {
