@@ -4,7 +4,7 @@ namespace App\Architecture\BusinessLogic\User\Service;
 
 use App\Architecture\DB\Contract\User\ILogin;
 use App\CommandPattern\ICommand;
-use App\Architecture\BusinessLogic\User\ValueObject\EmailValueObject;
+use App\Models\BusinessLogic\User\ValueObject\EmailValueObject;
 use Illuminate\Http\Request;
 
 final class LoginUserService implements ICommand
@@ -20,10 +20,8 @@ final class LoginUserService implements ICommand
 
     public function __invoke()
     {
-        $emailValueObject = new EmailValueObject($this->request->email);
-
         $verifyAccount = $this->loginDataBase->Login(
-            $emailValueObject->email()
+            new EmailValueObject($this->request->email)
         );
 
         if (!password_verify($this->request->password, $verifyAccount->password))
