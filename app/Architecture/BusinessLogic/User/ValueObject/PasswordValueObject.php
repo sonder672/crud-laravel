@@ -15,10 +15,10 @@ final class PasswordValueObject
 
     private function setPassword(string $password)
     {
-        if(\strlen($password) < 8){
-            throw new Exception('La clave debe tener minimo 8 caracteres');
-        }
-        $this->password->$password;
+        // if(\strlen($password) < 8){
+        //     throw new Exception('La clave debe tener minimo 8 caracteres');
+        // }
+        $this->password ->$password;
     }
 
     public function password()
