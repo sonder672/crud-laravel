@@ -11,7 +11,7 @@ final class Login implements ILogin
     public function login(EmailValueObject $email)
     {
         return DB::select(
-            'call SP_loginUser(?)',
+            'call SP_loginUser(?, @a)',
             array($email->email())
         );
     }

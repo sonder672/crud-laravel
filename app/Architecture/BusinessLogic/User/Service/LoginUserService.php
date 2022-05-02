@@ -23,14 +23,14 @@ final class LoginUserService implements ICommand
         $verifyAccount = $this->loginDataBase->Login(
             new EmailValueObject($this->request->email)
         );
-
-        if (!password_verify($this->request->password, $verifyAccount->password))
+        foreach($verifyAccount as $verifyAccounts){
+        
+        if (!password_verify($this->request->password, $verifyAccounts->password))
         {
             throw new \DomainException("Contraseña incorrecta");
         }
-
+        }
         session( ['id' => $verifyAccount->id] );
-
         return response()->json([
             'status' => 200,
             'message' => '¡Es bueno volverte a ver!'
