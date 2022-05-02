@@ -20,8 +20,10 @@ final class LoginUserService implements ICommand
 
     public function __invoke()
     {
+        $emailValueObject = new EmailValueObject($this->request->email);
+
         $verifyAccount = $this->loginDataBase->Login(
-            new EmailValueObject($this->request->email)
+            $emailValueObject->email()
         );
 
         if (!password_verify($this->request->password, $verifyAccount->password))
