@@ -4,9 +4,9 @@ namespace App\Architecture\BusinessLogic\User\Service;
 
 use App\Architecture\DB\Contract\User\ICreateUser;
 use App\CommandPattern\ICommand;
-use App\Models\BusinessLogic\User\UserEntity;
-use App\Models\BusinessLogic\User\ValueObject\EmailValueObject;
-use App\Models\BusinessLogic\User\ValueObject\PasswordValueObject;
+use App\Architecture\BusinessLogic\User\UserEntity;
+use App\Architecture\BusinessLogic\User\ValueObject\EmailValueObject;
+use App\Architecture\BusinessLogic\User\ValueObject\PasswordValueObject;
 use Illuminate\Http\Request;
 
 final class AddUserService implements ICommand
