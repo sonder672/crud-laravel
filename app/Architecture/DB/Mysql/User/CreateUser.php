@@ -2,7 +2,7 @@
 
 namespace App\Architecture\DB\Mysql\User;
 
-use App\Architecture\BusinessLogic\DB\Contract\User\ICreateUser;
+use App\Architecture\DB\Contract\User\ICreateUser;
 use App\Architecture\BusinessLogic\User\UserEntity;
 use Illuminate\Support\Facades\DB;
 
