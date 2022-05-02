@@ -3,7 +3,7 @@
 namespace App\Architecture\DB\Mysql\User;
 
 use App\Architecture\DB\Contract\User\ICreateUser;
-use App\Architecture\BusinessLogic\User\UserEntity;
+use App\Architecture\BusinessLogic\DB\User\UserEntity;
 use Illuminate\Support\Facades\DB;
 
 final class CreateUser implements ICreateUser
