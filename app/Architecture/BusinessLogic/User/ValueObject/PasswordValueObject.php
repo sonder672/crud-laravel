@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\BusinessLogic\User\ValueObject;
+namespace App\Architecture\BusinessLogic\User\ValueObject;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 
