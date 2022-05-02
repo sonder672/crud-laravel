@@ -12,7 +12,7 @@ final class Login implements ILogin
     {
         return DB::select(
             'call SP_loginUser(?)',
-            array($email)
+            array($email->email())
         );
     }
 }
