@@ -13,12 +13,12 @@ final class CreateUser implements ICreateUser
         return DB::select(
             'call SP_registerUser(?, ?, ?, ?, ?, ?)',
             array(
-                $attributes->id,
-                $attributes->name,
-                $attributes->lastName,
-                $attributes->age,
-                $attributes->email,
-                $attributes->password
+                $attributes->id(),
+                $attributes->name(),
+                $attributes->lastName(),
+                $attributes->age(),
+                $attributes->email(),
+                $attributes->password()
             )
         );
     }
