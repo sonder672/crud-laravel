@@ -4,7 +4,7 @@ namespace App\Architecture\BusinessLogic\User\Service;
 
 use App\Architecture\DB\Contract\User\ILogin;
 use App\CommandPattern\ICommand;
-use App\Models\BusinessLogic\User\ValueObject\EmailValueObject;
+use App\Architecture\BusinessLogic\User\ValueObject\EmailValueObject;
 use Illuminate\Http\Request;
 
 final class LoginUserService implements ICommand
