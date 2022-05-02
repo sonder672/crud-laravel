@@ -18,7 +18,7 @@ final class PasswordValueObject
         // if(\strlen($password) < 8){
         //     throw new Exception('La clave debe tener minimo 8 caracteres');
         // }
-        $this->password ->$password;
+        $this->password = Hash::make($password);
     }
 
     public function password()
