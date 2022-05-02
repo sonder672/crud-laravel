@@ -1,6 +1,7 @@
 <?php
 
 use App\Architecture\View\Controllers\NoteController;
+use App\Architecture\View\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,5 +25,5 @@ Route::post('note', [NoteController::class, 'store']);
 Route::delete('note/{uuid}', [NoteController::class, 'destroy']);
 Route::put('note/{id}', [NoteController::class, 'update']);
 
-Route::post('login');
-Route::post('register');
+Route::post('login',[UserController::class, 'login']);
+Route::post('register',[UserController::class, 'store']);
