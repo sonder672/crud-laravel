@@ -2,7 +2,7 @@
 
 namespace App\Architecture\DB\Contract\User;
 
-use App\Models\BusinessLogic\User\ValueObject\EmailValueObject;
+use App\Architecture\BusinessLogic\User\ValueObject\EmailValueObject;
 
 interface ILogin
 {

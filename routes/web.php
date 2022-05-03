@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\auth\User;
-use App\Http\Controllers\note\NoteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +12,6 @@ use App\Http\Controllers\note\NoteController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('/User', User::class);
-Route::resource('/note', NoteController::class);
 
 route::get('/', function(){
     return view('welcome');

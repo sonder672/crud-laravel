@@ -3,7 +3,7 @@
 namespace App\Architecture\DB\Mysql\User;
 
 use App\Architecture\DB\Contract\User\ICreateUser;
-use App\Models\BusinessLogic\User\UserEntity;
+use App\Architecture\BusinessLogic\User\UserEntity;
 use Illuminate\Support\Facades\DB;
 
 final class CreateUser implements ICreateUser
@@ -13,12 +13,12 @@ final class CreateUser implements ICreateUser
         return DB::select(
             'call SP_registerUser(?, ?, ?, ?, ?, ?)',
             array(
-                $attributes->id,
-                $attributes->name,
-                $attributes->lastName,
-                $attributes->age,
-                $attributes->email,
-                $attributes->password
+                $attributes->id(),
+                $attributes->name(),
+                $attributes->lastName(),
+                $attributes->age(),
+                $attributes->email(),
+                $attributes->password()
             )
         );
     }

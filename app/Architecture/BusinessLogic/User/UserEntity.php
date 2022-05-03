@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\BusinessLogic\User;
+namespace App\Architecture\BusinessLogic\User;
 
-use App\Models\BusinessLogic\User\ValueObject\EmailValueObject;
-use App\Models\BusinessLogic\User\ValueObject\PasswordValueObject;
+use App\Architecture\BusinessLogic\User\ValueObject\EmailValueObject;
+use App\Architecture\BusinessLogic\User\ValueObject\PasswordValueObject;
 
 final class UserEntity
 {
