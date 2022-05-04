@@ -6,6 +6,7 @@ use App\Architecture\BusinessLogic\Notes\Service\CreateNoteService;
 use App\Architecture\BusinessLogic\Notes\Service\DeleteNoteService;
 use App\Architecture\BusinessLogic\Notes\Service\ShowNoteByUserIdService;
 use App\Architecture\BusinessLogic\Notes\Service\UpdateNoteService;
+use App\Architecture\DB\Eloquent\Note\UpdateNote as UpdateNoteEloquent;
 use App\Architecture\DB\Mysql\Note\CreateNote;
 use App\Architecture\DB\Mysql\Note\DeleteNote;
 use App\Architecture\DB\Mysql\Note\ShowNoteByUserId;
@@ -21,21 +22,10 @@ class NoteController extends Controller
     {
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $createNoteService = new CreateNoteService(new CreateNote(), $request);
@@ -45,12 +35,6 @@ class NoteController extends Controller
         return $invoker->runCommand();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function showNotesByUser($userId)
     {
         $showByUserId = new ShowNoteByUserIdService(new ShowNoteByUserId(), $userId);
@@ -60,39 +44,11 @@ class NoteController extends Controller
         return $invoker->runCommand();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $uuid)
-    {
-        $updateNoteService = new UpdateNoteService(new UpdateNote(), $request, $uuid);
-
-        $invoker = new Invoker();
-        $invoker->addCommand($updateNoteService);
-        return $invoker->runCommand();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($uuid)
     {
         $deleteNoteService = new DeleteNoteService(new DeleteNote(), $uuid);
@@ -101,4 +57,27 @@ class NoteController extends Controller
         $invoker->addCommand($deleteNoteService);
         return $invoker->runCommand();
     }
+
+
+/* ------------------------------------------------------------------------------------------------------------------------- */
+//Ejemplo de inversión de dependencias y su uso:
+
+    public function update(Request $request, $uuid)
+    {
+        $updateNoteService = new UpdateNoteService(new UpdateNote(), $request, $uuid);
+
+        $invoker = new Invoker();
+        $invoker->addCommand($updateNoteService);
+        return $invoker->runCommand();
+    } 
+
+
+    /* public function update(Request $request, $uuid)
+    {
+        $updateNoteService = new UpdateNoteService(new UpdateNoteEloquent(), $request, $uuid);
+
+        $invoker = new Invoker();
+        $invoker->addCommand($updateNoteService);
+        return $invoker->runCommand();
+    } */
 }
