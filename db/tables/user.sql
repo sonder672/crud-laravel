@@ -5,7 +5,7 @@ CREATE TABLE `user` (
     `last_name` VARCHAR(40) NOT NULL,
     `age` SMALLINT unsigned NULL,
     `email` VARCHAR(60) NOT NULL UNIQUE,
-    `password` VARCHAR(20) NOT NULL,
+    `password` VARCHAR(100) NOT NULL,
     `additional_data` JSON NULL DEFAULT NULL,
     PRIMARY KEY (`id`),
     INDEX (`password`)

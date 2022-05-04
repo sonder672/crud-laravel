@@ -6,7 +6,7 @@ CREATE PROCEDURE `SP_registerUser`(
     _last_name VARCHAR(40),
     _age SMALLINT,
     _email VARCHAR(60),
-    _password VARCHAR(20)
+    _password VARCHAR(100)
 ) 
 BEGIN
 INSERT INTO `user`

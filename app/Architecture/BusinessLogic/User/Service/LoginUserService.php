@@ -23,17 +23,22 @@ final class LoginUserService implements ICommand
         $verifyAccount = $this->loginDataBase->Login(
             new EmailValueObject($this->request->email)
         );
-        foreach($verifyAccount as $verifyAccounts){
+        //Ciclo para recorrer lo devuelto por la Base de Datos.
+        foreach ($verifyAccount as $verifyAccounts) {
+
+            if (!password_verify($this->request->password, $verifyAccounts->password)) {
+                throw new \DomainException("Contraseña incorrecta");
+            }
+
+            session(['id' => $verifyAccounts->id]);
+
+            return response()->json([
+                'status' => 200,
+                'message' => '¡Es bueno volverte a ver!',
+                'id' => session('id')
+            ]);
+        }
         
-        if (!password_verify($this->request->password, $verifyAccounts->password))
-        {
-            throw new \DomainException("Contraseña incorrecta");
-        }
-        }
-        session( ['id' => $verifyAccount->id] );
-        return response()->json([
-            'status' => 200,
-            'message' => '¡Es bueno volverte a ver!'
-        ]);
+        throw new \DomainException("Correo no registrado");
     }
 }
