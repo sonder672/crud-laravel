@@ -13,5 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+route::get('/', function(){
+    return view('welcome');
+    });
+    route::get('/login', function(){
+        return view('auth.login');
+        });
+   
+        route::get('/register', function(){
+            return view('auth.register');
+});
 
 
