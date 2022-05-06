@@ -14,21 +14,21 @@
     <h3>Ingresa tus datos para registrarte</h3>
     <form>
         <div class="form-group">
-            <label for="exampleInputNombre">Nombre completo</label>
-            <input type="text" class="form-control" id="exampleInputNombre" placeholder="Ingresa tú nombre completo" require>
+            <label for="exampleInputNombre">Nombre</label>
+            <input type="text" class="form-control" id="exampleInputNombre" placeholder="Ingresa tú nombre" require>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputApellidos">Apellidos</label>
+            <input type="text" class="form-control" id="exampleInputApellidos" placeholder="Ingresa tús apellidos" require>
         </div>
         <div class="form-group">
             <label for="exampleInputCedula">Número de identicación </label>
             <input type="number" class="form-control" id="exampleInputCedula" placeholder="Ingresa tu identificación" require>
         </div>
         <div class="form-group">
-            <label for="exampleInputNacimiento">Fecha de nacimiento</label>
-            <input type="date" class="form-control" id="exampleInputNacimiento" placeholder="Ingresa tú día de nacimiento" require>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputCiudad">Ciudad</label>
-            <input type="text" class="form-control" id="exampleInputCiudad" placeholder="Tú ciudad">
-        </div>
+            <label for="exampleInputEdad">Edad</label>
+            <input type="date" class="form-control" id="exampleInputEdad" placeholder="Ingresa tú edad" require>
+        </div>  
         <div class="form-group">
             <label for="exampleInputEmail1">Correo electronico</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu correo" require>
