@@ -18,7 +18,12 @@ class UserController extends Controller
 
         $invoker = new Invoker();
         $invoker->addCommand($loginService);
-        return $invoker->runCommand();
+        //Content() contiene las variables enviadas desde el Servicio de BusinessLogic
+        $jsonContentToArray = json_decode($invoker->runCommand()->content(), true);
+        if ($jsonContentToArray['status'] == 200)
+        {
+            return redirect()->route('home')->with('success', $jsonContentToArray['message']);
+        }
     }
 
     public function store(Request $request)
@@ -27,13 +32,16 @@ class UserController extends Controller
 
         $invoker = new Invoker();
         $invoker->addCommand($createUserService);
-        return $invoker->runCommand();
+        $jsonContentToArray = json_decode($invoker->runCommand()->content(), true);
+        if ($jsonContentToArray['status'] == 200)
+        {
+            return redirect()->route('login')->with('success', $jsonContentToArray['message']);
+        }
     }
 
     public function logout()
     {
-        if(!session()->has('id'))
-        {
+        if (!session()->has('id')) {
             throw new \Exception("Inicie sesión primero");
         }
 
