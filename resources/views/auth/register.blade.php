@@ -38,12 +38,13 @@
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresa tu contraseña" require>
         </div>
         <button type="submit" class="btn btn-primary">Registrar</button>
+        <p class="small fw-bold mt-2 pt-1 mb-0">¿Ya tienes una cuenta? <a href="{{ url('/login') }}"
+                                    class="link-danger">Ingresar</a></p>
     </form>
 </div>
 </div>
 </div>
 </section>
-    @include('layouts.footer')
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
