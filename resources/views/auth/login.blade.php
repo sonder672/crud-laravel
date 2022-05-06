@@ -2,7 +2,6 @@
 
 <html lang="es">
 @include('layouts.header')
-
 <body>
     @include('layouts.navbar')
 
@@ -34,27 +33,25 @@
 
                         <div class="d-flex justify-content-between align-items-center">
 
-                            <div class="form-check mb-0">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                                <label class="form-check-label" for="exampleCheck1">Mostrar clave</label>
-                            </div>
+                           
                         </div>
 
                         <div class="text-center text-lg-start mt-4 pt-2">
-                            <button type="submit" class="btn btn-primary btn-lg"
-                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">¿No tienes una cuenta? <a href="#!"
+                            <button type="submit" class="btn btn-primary btn-lg" id="submit"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar></button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">¿No tienes una cuenta? <a href="{{ url('/register') }}"
                                     class="link-danger">Registrate</a></p>
                         </div>
-
                     </form>
-
                 </div>
             </div>
         </div>
     </section>
-
-    @include('layouts.footer')
+<script> 
+catch (error) {
+    alert(error)
+}
+</script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>

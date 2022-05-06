@@ -20,25 +20,34 @@ final class LoginUserService implements ICommand
 
     public function __invoke()
     {
-        $verifyAccount = $this->loginDataBase->Login(
-            new EmailValueObject($this->request->email)
-        );
-        //Ciclo para recorrer lo devuelto por la Base de Datos.
-        foreach ($verifyAccount as $verifyAccounts) {
+       try{ $verifyAccount = $this->loginDataBase->Login(
+        new EmailValueObject($this->request->email)
+    );
+    //Ciclo para recorrer lo devuelto por la Base de Datos.
+    foreach ($verifyAccount as $verifyAccounts) {
 
-            if (!password_verify($this->request->password, $verifyAccounts->password)) {
-                throw new \DomainException("Contraseña incorrecta");
-            }
+        if (!password_verify($this->request->password, $verifyAccounts->password)) {
+            throw new \DomainException("Contraseña incorrecta");
+        }
 
-            session(['id' => $verifyAccounts->id]);
+        session(['id' => $verifyAccounts->id]);
 
+        return response()->json([
+            'status' => 200,
+            'message' => '¡Es bueno volverte a ver!',
+            'id' => session('id')
+        ]);
+    }
+    
+    throw new \DomainException("Correo no registrado");
+
+       }catch(\Exception $e){
+        if(isset($e)){
             return response()->json([
-                'status' => 200,
-                'message' => '¡Es bueno volverte a ver!',
-                'id' => session('id')
+                'status' => $e->getCode(),
+                'message' => $e->getMessage()
             ]);
         }
-        
-        throw new \DomainException("Correo no registrado");
+       }
     }
 }
