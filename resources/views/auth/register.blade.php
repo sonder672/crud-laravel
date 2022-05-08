@@ -3,6 +3,7 @@
 @include('layouts.header')
 <body>
     @include('layouts.navbar')
+    <body background="https://static.vecteezy.com/system/resources/previews/001/072/211/large_2x/abstract-digital-technology-blue-abstract-hud-background-vector.jpg">
     <section class="vh-100">
         <div class="container-fluid h-custom">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -11,40 +12,44 @@
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-    <h3>Ingresa tus datos para registrarte</h3>
+   
     <form>
-        <div class="form-group">
+        <div class="form-group text-white fw-bold">
+            <h3>Ingresa tus datos para registrarte</h3>
             <label for="exampleInputNombre">Nombre</label>
             <input type="text" class="form-control" id="exampleInputNombre" placeholder="Ingresa tú nombre" require>
         </div>
-        <div class="form-group">
+        <div class="form-group text-white fw-bold">
             <label for="exampleInputApellidos">Apellidos</label>
             <input type="text" class="form-control" id="exampleInputApellidos" placeholder="Ingresa tús apellidos" require>
         </div>
-        <div class="form-group">
+        <div class="form-group text-white fw-bold">
             <label for="exampleInputCedula">Número de identicación </label>
             <input type="number" class="form-control" id="exampleInputCedula" placeholder="Ingresa tu identificación" require>
         </div>
-        <div class="form-group">
+        <div class="form-group text-white fw-bold">
             <label for="exampleInputEdad">Edad</label>
-            <input type="date" class="form-control" id="exampleInputEdad" placeholder="Ingresa tú edad" require>
+            <input type="number" class="form-control" id="exampleInputEdad" placeholder="Ingresa tú edad" require>
         </div>  
-        <div class="form-group">
+        <div class="form-group text-white fw-bold">
             <label for="exampleInputEmail1">Correo electronico</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu correo" require>
         </div>
-        <div class="form-group">
+        <div class="form-group text-white fw-bold">
             <label for="exampleInputPassword1">Contraseña</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresa tu contraseña" require>
         </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary fw-bold ">Registrar</button>
         <p class="small fw-bold mt-2 pt-1 mb-0">¿Ya tienes una cuenta? <a href="{{ url('/login') }}"
-                                    class="link-danger">Ingresar</a></p>
+                                    class="link-danger ">Ingresar</a></p>
+        </div>
     </form>
 </div>
 </div>
 </div>
 </section>
+@include('layouts.footer')
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>

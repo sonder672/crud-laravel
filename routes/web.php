@@ -31,10 +31,3 @@ route::post('/login', [UserController::class, 'login'])->name('login');
 route::get('/register', function () {
     return view('auth.register');
 });
-<<<<<<< HEAD
-=======
-
-route::get('/note', function () {
-    return view('note.notes');
-});
->>>>>>> 91af0b1a9ec0e5e7954752c06586b149623e2d9f

@@ -1,4 +1,4 @@
-<footer class="text-center text-white fixed-bottom" style="background-color: #39C0ED;">
+<footer class="text-center text-white fixed-bottom" style="background-color: #315ff5;">
 
   <div class="container p-4"></div>
 
