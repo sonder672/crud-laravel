@@ -42,7 +42,7 @@
         <br/>
         <div class="col-12 text-center">
         <button type="submit" class="btn btn-lg  btn-outline-info fw-bold text-white">Registrar</button>
-        <p class="small fw-bold mt-2 pt-1 mb-0">¿Ya tienes una cuenta? <a href="{{ url('/login') }}"
+        <p class="small fw-bold mt-2 pt-1 mb-0 fw-bold text-white">¿Ya tienes una cuenta? <a href="{{ url('/login') }}"
                                     class="link-danger ">Ingresar</a></p>
         </div>
     </form>

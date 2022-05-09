@@ -12,7 +12,7 @@
     @endif
     <div class="container-fluid text-center">
         <div class="m-0 row justify-content-center">
-            <div class="col-sm-8 border border-dark mt-5">  
+            <div class="col-sm-8 border border-white mt-5">  
                 <div class="form-group text-white fw-bold">
                 <h1>Bienvenido a Tus Notas</h1>
                 <p class="fst-italic fw-bold fs-6" >Piensa en Tus Notas como tu centro de referencia, no solo para
@@ -26,7 +26,7 @@
                 <figure class="container overflow-hidden">
                     <div class="row gy-5">
                       <div class="col-6">
-                        <blockquote class="p-0 border bg-info fst-italic fw-bold blockquote">
+                        <blockquote class="card p-0 border fst-italic fw-bold blockquote" style="background-color:transparent;">
                             <p>Juan David Ramirez</p>
                           </blockquote>
                           <figcaption class="blockquote-footer text-dark fw-bold">
@@ -34,7 +34,7 @@
                           </figcaption>
                       </div>
                       <div class="col-6">
-                        <blockquote class="p-0 border bg-info fst-italic fw-bold blockquote">
+                        <blockquote class="card p-0 border fst-italic fw-bold blockquote" style="background-color:transparent;">
                             <p>Santiago Largo</p>
                           </blockquote>
                           <figcaption class="blockquote-footer text-dark fw-bold">
@@ -42,7 +42,7 @@
                           </figcaption>
                       </div>
                       <div class="col-6">
-                        <blockquote class="p-0 border bg-info fst-italic fw-bold blockquote">
+                        <blockquote class="card p-0 border fst-italic fw-bold blockquote" style="background-color:transparent;">
                             <p>Angelica Aristizabal</p>
                           </blockquote>
                           <figcaption class="blockquote-footer text-dark fw-bold">
@@ -50,7 +50,7 @@
                           </figcaption>
                       </div>
                       <div class="col-6">
-                        <blockquote class="p-0 border bg-info fst-italic fw-bold blockquote">
+                        <blockquote class="card p-0 border fst-italic fw-bold blockquote" style="background-color:transparent;">
                             <p>Jessuar Gutierrez</p>
                           </blockquote>
                           <figcaption class="blockquote-footer text-dark fw-bold">
@@ -63,7 +63,9 @@
             </div>
         </div>
         <div class="col-12 text-center">
-            <button type="submit" class="btn btn-lg btn-primary fw-bold ">Mis notas</button>
+          <button type="submit" class="btn btn-lg  btn-outline-info fw-bold text-white"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Mis notas</button>
+      </div>
    
             @include('layouts.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
