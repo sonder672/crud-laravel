@@ -5,7 +5,9 @@ namespace App\Architecture\View\Controllers;
 use App\Architecture\BusinessLogic\Notes\Service\CreateNoteService;
 use App\Architecture\BusinessLogic\Notes\Service\DeleteNoteService;
 use App\Architecture\BusinessLogic\Notes\Service\ShowNoteByUserIdService;
+use App\Architecture\BusinessLogic\Notes\Service\ShowSpecificNote;
 use App\Architecture\BusinessLogic\Notes\Service\UpdateNoteService;
+use App\Architecture\DB\Eloquent\Note\ShowSpecificNote as NoteShowSpecificNote;
 use App\Architecture\DB\Eloquent\Note\UpdateNote as UpdateNoteEloquent;
 use App\Architecture\DB\Mysql\Note\CreateNote;
 use App\Architecture\DB\Mysql\Note\DeleteNote;
@@ -44,9 +46,19 @@ class NoteController extends Controller
         return $invoker->runCommand();
     }
 
-    public function edit($id)
+    public function edit($uuid)
     {
-        //
+        $specificNote = new ShowSpecificNote($uuid, new NoteShowSpecificNote());
+
+        $invoker = new Invoker();
+        $invoker->addCommand($specificNote);
+        $jsonContentToArray = json_decode($invoker->runCommand()->content(), true);
+        if ($jsonContentToArray['status'] == 200)
+        {
+            return view('note.noteEdit', [
+                'contentNote' => $jsonContentToArray['contentNote']
+            ]);
+        }
     }
 
     public function destroy($uuid)
@@ -55,7 +67,11 @@ class NoteController extends Controller
 
         $invoker = new Invoker();
         $invoker->addCommand($deleteNoteService);
-        return $invoker->runCommand();
+        $jsonContentToArray = json_decode($invoker->runCommand()->content(), true);
+        if ($jsonContentToArray['status'] == 200)
+        {
+            return redirect()->back()->with('success', $jsonContentToArray['message']);
+        }
     }
 
 
@@ -68,7 +84,11 @@ class NoteController extends Controller
 
         $invoker = new Invoker();
         $invoker->addCommand($updateNoteService);
-        return $invoker->runCommand();
+        $jsonContentToArray = json_decode($invoker->runCommand()->content(), true);
+        if ($jsonContentToArray['status'] == 200)
+        {
+            return redirect()->view('note.noteCreate')->with('success', $jsonContentToArray['message']);
+        }
     } 
 
 
